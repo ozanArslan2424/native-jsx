@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"types": ["node"],
+		"jsx": "react-jsx",
+		"declaration": true,
+		"outDir": "dist",
+		"rootDir": ".",
+		"strict": true,
+		"skipLibCheck": true,
+		"allowJs": true,
+		"noEmit": false,
+		"resolveJsonModule": true,
+		"verbatimModuleSyntax": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"noPropertyAccessFromIndexSignature": false,
+		"esModuleInterop": true
+	},
+	"include": ["src", "test", "tsdown.config.ts"]
+}
