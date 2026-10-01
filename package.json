@@ -3,12 +3,29 @@
 	"name": "@ozanarslan/native-jsx",
 	"version": "0.1.0",
 	"description": "Lowercase intrinsic elements for React Native",
+	"keywords": [
+		"expo",
+		"jsx",
+		"jsx-runtime",
+		"nativewind",
+		"react-native"
+	],
+	"homepage": "https://github.com/ozanarslan/native-jsx#readme",
+	"bugs": {
+		"url": "https://github.com/ozanarslan/native-jsx/issues"
+	},
+	"license": "MIT",
+	"author": "Ozan Arslan",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ozanarslan/native-jsx.git"
+	},
 	"bin": {
 		"native-jsx": "./dist/cli/index.mjs"
 	},
 	"files": [
 		"dist",
-		"bin"
+		"LICENSE"
 	],
 	"type": "module",
 	"exports": {
@@ -30,12 +47,16 @@
 			"default": "./dist/oxlint/index.cjs"
 		}
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsdown",
 		"fm": "oxfmt --write",
 		"lint": "oxlint --fix",
 		"knip": "knip",
-		"test": "vitest run"
+		"test": "vitest run",
+		"prepublishOnly": "pnpm test && pnpm build"
 	},
 	"dependencies": {
 		"@babel/parser": "^7.29.9"
@@ -44,6 +65,7 @@
 		"@babel/types": "^7.29.8",
 		"@types/node": "^26.6.2",
 		"@types/react": "^19.2.2",
+		"knip": "^5.0.0",
 		"nativewind": "^4",
 		"oxfmt": "^0.70.0",
 		"oxlint": "^1.85.0",
@@ -55,13 +77,24 @@
 	},
 	"peerDependencies": {
 		"babel-preset-expo": "*",
+		"eslint": ">=9",
 		"nativewind": "^4",
+		"oxlint": ">=1",
 		"react": ">=19",
 		"react-native": ">=0.86"
 	},
 	"peerDependenciesMeta": {
+		"eslint": {
+			"optional": true
+		},
 		"nativewind": {
 			"optional": true
+		},
+		"oxlint": {
+			"optional": true
 		}
+	},
+	"engines": {
+		"node": ">=20"
 	}
 }
