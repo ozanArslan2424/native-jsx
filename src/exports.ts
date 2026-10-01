@@ -1,5 +1,4 @@
 export { createElement } from "./create-element";
 
-export { defineDesignSystem, type Register } from "./design-system/system";
-export { Styles } from "./design-system/stylesheet";
+export { defineDesignSystem, type Register, Styles } from "./design-system/system";
 export { definePalette } from "./design-system/palette";
