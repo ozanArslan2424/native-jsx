@@ -35,7 +35,7 @@
 		"./nativewind": "./dist/nativewind/index.js",
 		"./nativewind/jsx-dev-runtime": "./dist/nativewind/jsx-dev-runtime.js",
 		"./nativewind/jsx-runtime": "./dist/nativewind/jsx-runtime.js",
-		"./stylesheet": "./dist/stylesheet.js",
+		"./system": "./dist/system.js",
 		"./package.json": "./package.json",
 		"./babel": "./dist/babel/babel.cjs",
 		"./eslint": {
@@ -66,6 +66,7 @@
 	},
 	"devDependencies": {
 		"@babel/types": "^7.29.8",
+		"@changesets/changelog-github": "^1.0.1",
 		"@changesets/cli": "^3.0.3",
 		"@types/node": "^26.6.2",
 		"@types/react": "^19.2.2",
