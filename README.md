@@ -27,6 +27,33 @@ Requires React 19+, React Native 0.86+ and an Expo project (`babel-preset-expo`)
 
 ## Setup
 
+Only setup babel:
+
+```sh
+npx native-jsx
+```
+
+Run every migration at once:
+
+```sh
+npx native-jsx --migrate
+```
+
+Or pick individual ones:
+
+```sh
+npx native-jsx --jsx --eslint
+```
+
+| Flag           | What it does                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `--jsx`        | Rewrites core components imported from `react-native` (`<View>`, `<Text>`, …) to intrinsic tags and removes the unused imports |
+| `--stylesheet` | Converts `StyleSheet.create` calls to `Styles.defineSheet`                                                                     |
+| `--eslint`     | Adds the native-jsx config to your ESLint flat config                                                                          |
+| `--oxlint`     | Adds the native-jsx config to your Oxlint config                                                                               |
+
+Migrations run in the order above, whatever order the flags are given in. Commit or stash your changes first so you can review the diff.
+
 Use the package's Babel preset in place of `babel-preset-expo`:
 
 ```js
