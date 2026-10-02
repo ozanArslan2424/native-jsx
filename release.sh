@@ -30,28 +30,8 @@ if pnpm whoami &>/dev/null; then
 else
     echo -e "${GREEN}Step ${STEP}: Running pnpm login...${RESET}"
     pnpm login
-    pause "Step ${STEP} complete. Ready to format?"
+    pause "Step ${STEP} complete. Ready to create a changeset?"
 fi
-
-# Format
-echo -e "${GREEN}Step ${STEP}: Running pnpm run fm...${RESET}"
-pnpm run fm
-pause "Step ${STEP} complete. Ready to lint?"
-
-# Lint
-echo -e "${GREEN}Step ${STEP}: Running pnpm run lint...${RESET}"
-pnpm run lint
-pause "Step ${STEP} complete. Ready to build?"
-
-# Build all packages
-echo -e "${GREEN}Step ${STEP}: Running pnpm run build...${RESET}"
-pnpm run build
-pause "Step ${STEP} complete. Ready to test?"
-
-# Test all packages
-echo -e "${GREEN}Step ${STEP}: Running pnpm test...${RESET}"
-pnpm run test
-pause "Step ${STEP} complete. Ready to create a changeset?"
 
 # Changeset (interactive — waits for CLI to finish naturally)
 echo -e "${GREEN}Step ${STEP}: Running pnpm run changeset...${RESET}"
@@ -61,9 +41,20 @@ pause "Step ${STEP} complete. Ready to version packages?"
 # Version
 echo -e "${GREEN}Step ${STEP}: Running pnpm run version...${RESET}"
 pnpm run version
+pause "Step ${STEP} complete. Review the version bump and changelog, then commit?"
+
+# Commit
+VERSION=$(node -p "require('./package.json').version")
+echo -e "${GREEN}Step ${STEP}: Committing v${VERSION}...${RESET}"
+git add -A
+git commit -m "v${VERSION}"
 pause "Step ${STEP} complete. Ready to publish?"
 
 # Release
 echo -e "${GREEN}Step ${STEP}: Running pnpm run release...${RESET}"
 pnpm run release
-echo -e "${GREEN}=== Release complete, don't forget to push your changes. ===${RESET}"
+
+# Push
+echo -e "${GREEN}Step ${STEP}: Pushing commit and tags...${RESET}"
+git push --follow-tags
+echo -e "${GREEN}=== Release complete ===${RESET}"
