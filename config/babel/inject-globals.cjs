@@ -22,7 +22,7 @@ module.exports = function nativeJsxGlobals({ types: t }) {
 					"body",
 					t.importDeclaration(
 						[t.importSpecifier(t.identifier("Styles"), t.identifier("Styles"))],
-						t.stringLiteral(`${name}/stylesheet`),
+						t.stringLiteral(`${name}/system`),
 					),
 				);
 			},
